@@ -18,7 +18,7 @@ export interface Movie {
     description: string
     posterUrl: string | null
     backdropUrl: string | null
-    releaseYear: number
+    releaseYear: number | null
     releaseDate: string
     rating: number
     voteCount: number
