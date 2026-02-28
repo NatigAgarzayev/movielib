@@ -9,12 +9,17 @@ export class MoviesController {
     @Get()
     getMovies(
         @Query('search') search?: string,
+        @Query('genre') genre?: string,
         @Query('page') page?: string,
     ): Promise<MovieListResponse> {
         const pageNumber = page ? parseInt(page, 10) : 1;
 
         if (search) {
             return this.moviesService.searchMovies(search, pageNumber);
+        }
+
+        if (genre) {
+            return this.moviesService.getMoviesByGenre(parseInt(genre, 10), pageNumber);
         }
 
         return this.moviesService.getPopularMovies(pageNumber);

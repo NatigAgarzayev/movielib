@@ -46,4 +46,17 @@ export class MoviesService {
             currentPage: data.page,
         };
     }
+
+    async getMoviesByGenre(genreId: number, page = 1): Promise<MovieListResponse> {
+        const { data } = await axios.get(`${this.baseUrl}/discover/movie`, {
+            params: { api_key: this.apiKey, with_genres: genreId, page },
+        });
+
+        return {
+            results: data.results.map((m: TmdbMovie) => transformMovie(m)),
+            totalResults: data.total_results,
+            totalPages: data.total_pages,
+            currentPage: data.page,
+        };
+    }
 }
