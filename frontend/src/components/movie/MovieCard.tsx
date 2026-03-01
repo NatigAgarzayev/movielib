@@ -22,6 +22,9 @@ export default function MovieCard({ movie }: Props) {
                 : <div className={styles.noPoster}>No Image</div>
             }
 
+            {
+                movie.isAdult && <div className={styles.adult}>18+</div>
+            }
             <div className={styles.staticInfo}>
                 <div className={styles.titleRow}>
                     <h3 className={styles.title}>{movie.title}</h3>

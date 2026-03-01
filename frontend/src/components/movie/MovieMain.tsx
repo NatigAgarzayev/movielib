@@ -1,26 +1,46 @@
+import { useEffect, useRef } from 'react'
 import styles from './MovieMain.module.css'
 import { useMovies } from '../../hooks/useMovies'
 import MovieCard from './MovieCard'
 import MovieSkeleton from './MovieSkeleton'
 
-export default function MovieMain() {
-    const { items, loading, error } = useMovies()
+const MovieMain = () => {
+    const { items, loading, error, hasMore, handleLoadMore } = useMovies()
+    const observerRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting && hasMore && !loading) {
+                    handleLoadMore()
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (observerRef.current) {
+            observer.observe(observerRef.current)
+        }
+
+        return () => observer.disconnect()
+    }, [hasMore, loading, handleLoadMore])
 
     if (error) return null
 
     return (
         <div className='wrapper'>
-
             <div className={styles.grid}>
-                {loading
-                    ? Array.from({ length: 20 }).map((_, i) => (
-                        <MovieSkeleton key={i} />
-                    ))
-                    : items.map((movie) => (
-                        <MovieCard key={movie.id} movie={movie} />
-                    ))
-                }
+                {items.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
+                ))}
+                {loading && Array.from({ length: 20 }).map((_, i) => (
+                    <MovieSkeleton key={i} />
+                ))}
             </div>
+
+            <div ref={observerRef} className={styles.trigger} />
         </div>
     )
 }
+
+export default MovieMain
