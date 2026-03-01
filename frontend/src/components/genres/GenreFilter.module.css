@@ -1,0 +1,64 @@
+.genreContent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scrollbar-width: none;
+}
+
+.genreContent::-webkit-scrollbar {
+    display: none;
+}
+
+.pill {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--color-button);
+    color: var(--color-gray);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.pill:hover {
+    color: var(--color-white);
+    background-color: var(--color-dark-gray);
+}
+
+.active {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--color-white);
+}
+
+.loading {
+    padding: 16px 0;
+    color: var(--color-gray);
+    font-size: 14px;
+}
+
+/* skeleton */
+
+.skeletonPill {
+    flex-shrink: 0;
+    width: 80px;
+    height: 36px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--color-button) 25%, var(--color-dark-gray) 50%, var(--color-button) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
