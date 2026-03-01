@@ -67,12 +67,6 @@
     overflow: hidden;
 }
 
-.rating {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--color-rating);
-}
-
 .title {
     font-size: 18px;
     font-weight: 600;
