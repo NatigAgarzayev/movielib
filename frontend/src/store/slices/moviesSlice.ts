@@ -75,9 +75,13 @@ const moviesSlice = createSlice({
             })
             .addCase(loadMovies.fulfilled, (state, action) => {
                 state.loading = false
-                state.items = action.payload.currentPage === 1
-                    ? action.payload.results
-                    : [...state.items, ...action.payload.results]
+                if (action.payload.currentPage === 1) {
+                    state.items = action.payload.results
+                } else {
+                    const existingIds = new Set(state.items.map((m) => m.id))
+                    const newItems = action.payload.results.filter((m) => !existingIds.has(m.id))
+                    state.items = [...state.items, ...newItems]
+                }
                 state.totalPages = action.payload.totalPages
                 state.currentPage = action.payload.currentPage
                 state.totalResults = action.payload.totalResults

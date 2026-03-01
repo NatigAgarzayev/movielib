@@ -33,13 +33,20 @@ const MovieMain = () => {
     return (
         <div className='wrapper'>
             <div className={styles.grid}>
-                {items.map((movie, i) => (
-                    <MovieCard key={movie.id + i} movie={movie} />
+                {items.map((movie) => (
+                    <MovieCard key={movie.id} movie={movie} />
                 ))}
                 {loading && Array.from({ length: 20 }).map((_, i) => (
                     <MovieSkeleton key={i} />
                 ))}
             </div>
+
+            {!loading && items.length === 0 && (
+                <div className={styles.empty}>
+                    <p className={styles.emptyTitle}>No movies found</p>
+                    <p className={styles.emptySubtitle}>Try searching for something else</p>
+                </div>
+            )}
 
             <div ref={observerRef} className={styles.trigger} />
         </div>
