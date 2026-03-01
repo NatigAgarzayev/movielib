@@ -1,6 +1,7 @@
 import styles from './MovieMain.module.css'
 import { useMovies } from '../../hooks/useMovies'
 import MovieCard from './MovieCard'
+import MovieSkeleton from './MovieSkeleton'
 
 export default function MovieMain() {
     const { items, loading, error } = useMovies()
@@ -9,11 +10,11 @@ export default function MovieMain() {
 
     return (
         <div className='wrapper'>
+
             <div className={styles.grid}>
                 {loading
                     ? Array.from({ length: 20 }).map((_, i) => (
-                        // <MovieSkeleton key={i} />
-                        <div></div>
+                        <MovieSkeleton key={i} />
                     ))
                     : items.map((movie) => (
                         <MovieCard key={movie.id} movie={movie} />
