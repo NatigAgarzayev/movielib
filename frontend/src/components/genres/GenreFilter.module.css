@@ -35,6 +35,12 @@
     color: var(--color-white);
 }
 
+.active:hover {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+    color: var(--color-white);
+}
+
 .loading {
     padding: 16px 0;
     color: var(--color-gray);
