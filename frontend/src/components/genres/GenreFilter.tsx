@@ -11,6 +11,12 @@ const GenreFilter = () => {
     const scrollRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        if (selectedGenre === null && scrollRef.current) {
+            scrollRef.current.scrollLeft = 0
+        }
+    }, [selectedGenre])
+
+    useEffect(() => {
         const el = scrollRef.current
         if (!el) return
 
