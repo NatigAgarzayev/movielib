@@ -9,8 +9,13 @@
 
     width: fit-content;
 
-    padding: 4px 10px 4px 6px;
+    padding: 1px 10px 1px 6px;
 
     font-size: 12px;
     font-weight: 600;
+}
+
+.star {
+    min-width: 12px;
+    max-width: 12px;
 }

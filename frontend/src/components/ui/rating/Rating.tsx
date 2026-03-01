@@ -8,7 +8,7 @@ interface Props {
 export default function Rating({ point }: Props) {
     return (
         <div className={styles.rating}>
-            <Star color='white' fill='white' size={12} />
+            <Star className={styles.star} fill='white' />
             <span>{point.toFixed(1)}</span>
         </div>
     )
