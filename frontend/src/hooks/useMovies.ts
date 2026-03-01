@@ -23,6 +23,14 @@ export const useMovies = () => {
         dispatch(setCurrentPage(page))
     }
 
+    const handleLoadMore = () => {
+        if (currentPage < totalPages) {
+            dispatch(setCurrentPage(currentPage + 1))
+        }
+    }
+
+    const hasMore = currentPage < totalPages
+
     return {
         items,
         loading,
@@ -34,5 +42,7 @@ export const useMovies = () => {
         handleSearch,
         handleGenreSelect,
         handlePageChange,
+        hasMore,
+        handleLoadMore,
     }
 }

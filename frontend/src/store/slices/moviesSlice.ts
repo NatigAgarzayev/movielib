@@ -75,7 +75,9 @@ const moviesSlice = createSlice({
             })
             .addCase(loadMovies.fulfilled, (state, action) => {
                 state.loading = false
-                state.items = action.payload.results
+                state.items = action.payload.currentPage === 1
+                    ? action.payload.results
+                    : [...state.items, ...action.payload.results]
                 state.totalPages = action.payload.totalPages
                 state.currentPage = action.payload.currentPage
                 state.totalResults = action.payload.totalResults
