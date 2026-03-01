@@ -87,6 +87,9 @@ h6 {
     --color-white: #ffffff;
     --color-dark-gray: #1e2939;
     --color-gray: #99a1af;
+    --color-border: #1e2939;
+    --color-button: #1c1c1c;
+    --color-placeholder: #6B7280;
 }
 
 body {

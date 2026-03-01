@@ -1,8 +1,12 @@
-import React from 'react'
 import styles from './Header.module.css'
-import { Clapperboard, Search } from 'lucide-react'
+import { Clapperboard } from 'lucide-react'
+import SearchBar from '../ui/search/SearchBar'
+import { useMovies } from '../../hooks/useMovies'
 
 export default function Header() {
+
+    const { searchQuery, handleSearch } = useMovies()
+
     return (
         <header className={styles.header}>
             <div className="wrapper">
@@ -14,8 +18,7 @@ export default function Header() {
                         <h1 className={styles.title}>MovieLib</h1>
                     </div>
                     <div className={styles.search}>
-                        <Search size={18} />
-                        <input type="text" placeholder="Search for movies..." className={styles.searchInput} />
+                        <SearchBar value={searchQuery} onChange={handleSearch} />
                     </div>
                 </div>
             </div>
