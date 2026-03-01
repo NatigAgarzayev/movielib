@@ -9,6 +9,7 @@
 - Also the same for data that I get from API. I handle all errors and return them in JSON format so front will be able to show it
 - Added data transformation so mostly I don't use original keys from API but changed them to my keys by using trasformation function
 - I mostly focused on implementation of services and controllers. Also, consistently worked on typing the data.
+- Resolved CORS issue by allowing specific urls to access backend
 
 ### Frontend
 - I used layer-base approach when I organize files in my frontend project. It is a great organization for small projects. For big projects, I would prefer feature-based or FSD approach
