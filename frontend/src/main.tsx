@@ -1,4 +1,3 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { store } from './store';
@@ -11,9 +10,7 @@ if ('scrollRestoration' in history) {
 window.scrollTo(0, 0)
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>
 )

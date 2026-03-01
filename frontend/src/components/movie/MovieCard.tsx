@@ -2,6 +2,7 @@ import styles from './MovieCard.module.css'
 import type { Movie } from '../../types/movie.types'
 import { useAppSelector } from '../../hooks/useAppSelector'
 import Rating from '../ui/rating/Rating'
+import { useMemo } from 'react'
 
 interface Props {
     movie: Movie
@@ -9,7 +10,10 @@ interface Props {
 
 export default function MovieCard({ movie }: Props) {
     const genres = useAppSelector((state) => state.genres.items)
-    const movieGenres = genres.filter((g) => movie.genreIds.includes(g.id))
+    const movieGenres = useMemo(
+        () => genres.filter((g) => movie.genreIds.includes(g.id)),
+        [genres, movie.genreIds]
+    )
 
     return (
         <div className={styles.card}>

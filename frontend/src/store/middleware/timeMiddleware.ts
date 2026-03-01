@@ -1,27 +1,23 @@
-import type { Middleware } from '@reduxjs/toolkit';
+import type { Middleware } from '@reduxjs/toolkit'
+
+const timings = new Map<string, number>()
 
 export const timeMiddleware: Middleware = () => (next) => (action: any) => {
     if (action.type.endsWith('/pending')) {
-        const start = performance.now();
-        const label = action.type.replace('/pending', '');
-
-        const result = next(action);
-
-        action.meta._startTime = start;
-        action.meta._label = label;
-
-        return result;
+        const label = action.type.replace('/pending', '')
+        timings.set(action.meta.requestId, performance.now())
+        console.log(`[${label}] started`)
     }
 
     if (action.type.endsWith('/fulfilled') || action.type.endsWith('/rejected')) {
-        const start = action.meta?._startTime;
-        const label = action.meta?._label;
-
-        if (start && label) {
-            const duration = Math.round(performance.now() - start);
-            console.log(`[${label}] took ${duration}ms`);
+        const start = timings.get(action.meta.requestId)
+        if (start) {
+            const label = action.type.replace('/fulfilled', '').replace('/rejected', '')
+            const duration = Math.round(performance.now() - start)
+            console.log(`[${label}] took ${duration}ms`)
+            timings.delete(action.meta.requestId)
         }
     }
 
-    return next(action);
-};
+    return next(action)
+}
