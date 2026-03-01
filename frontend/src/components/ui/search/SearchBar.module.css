@@ -33,3 +33,9 @@
 .input::placeholder {
     color: var(--color-placeholder);
 }
+
+@media(max-width: 767.98px) {
+    .container {
+        width: 100%;
+    }
+}
