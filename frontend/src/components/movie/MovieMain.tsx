@@ -3,10 +3,15 @@ import styles from './MovieMain.module.css'
 import { useMovies } from '../../hooks/useMovies'
 import MovieCard from './MovieCard'
 import MovieSkeleton from './MovieSkeleton'
+import { toast } from 'react-hot-toast'
 
 const MovieMain = () => {
     const { items, loading, error, hasMore, handleLoadMore } = useMovies()
     const observerRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (error) toast.error(error)
+    }, [error])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -25,13 +30,11 @@ const MovieMain = () => {
         return () => observer.disconnect()
     }, [hasMore, loading, handleLoadMore])
 
-    if (error) return null
-
     return (
         <div className='wrapper'>
             <div className={styles.grid}>
                 {items.map((movie, i) => (
-                    <MovieCard key={i} movie={movie} />
+                    <MovieCard key={movie.id + i} movie={movie} />
                 ))}
                 {loading && Array.from({ length: 20 }).map((_, i) => (
                     <MovieSkeleton key={i} />

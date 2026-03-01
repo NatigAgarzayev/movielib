@@ -1,13 +1,18 @@
 import styles from './GenreFilter.module.css'
 import { useGenres } from '../../hooks/useGenres'
 import { useMovies } from '../../hooks/useMovies'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { toast } from 'react-hot-toast/headless'
 
 const GenreFilter = () => {
     const { items: genres, loading, error } = useGenres()
     const { selectedGenre, handleGenreSelect } = useMovies()
 
     const scrollRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        if (error) toast.error(error)
+    }, [error])
 
     const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
         if (scrollRef.current) {
