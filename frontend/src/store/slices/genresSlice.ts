@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { AxiosError } from 'axios'
-import { fetchGenres } from '../services/api'
-import type { Genre } from '../types/movie.types'
+import { fetchGenres } from '../../services/api'
+import type { Genre } from '../../types/movie.types'
 
 interface GenresState {
     items: Genre[]

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { fetchMovies } from '../services/api'
+import { fetchMovies } from '../../services/api'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import type { Movie } from '../types/movie.types'
+import type { Movie } from '../../types/movie.types'
 import { AxiosError } from 'axios'
 
 interface MoviesState {
