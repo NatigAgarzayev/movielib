@@ -19,8 +19,3 @@ export interface MovieListResponse {
     totalPages: number
     currentPage: number
 }
-
-export interface Genre {
-    id: number
-    label: string
-}
