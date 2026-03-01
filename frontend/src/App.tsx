@@ -1,5 +1,9 @@
+import Header from "./components/layout/Header";
+
 function App() {
-  return <div>Movie App</div>;
+    return (
+        <Header />
+    )
 }
 
 export default App;

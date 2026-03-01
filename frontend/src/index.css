@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -73,4 +75,29 @@ h6 {
 #root,
 #__next {
     isolation: isolate;
+}
+
+
+/* global styles */
+
+:root {
+    --color-red: #e50914;
+    --color-black-primary: #0f0f0f;
+    --color-black-secondary: #141414;
+    --color-white: #ffffff;
+    --color-dark-gray: #1e2939;
+    --color-gray: #99a1af;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
