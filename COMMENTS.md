@@ -21,6 +21,10 @@
 - I didn't add React Router Dom since we only have one page
 - I made full responsive application for all screen and devices in order to increase UX
 
+
+### Overall
+- All points (based + bonus) has been implemented in this project
+
 ---
 
 ## 2. AI Disclosure
