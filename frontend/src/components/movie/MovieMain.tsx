@@ -30,8 +30,8 @@ const MovieMain = () => {
     return (
         <div className='wrapper'>
             <div className={styles.grid}>
-                {items.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                {items.map((movie, i) => (
+                    <MovieCard key={i} movie={movie} />
                 ))}
                 {loading && Array.from({ length: 20 }).map((_, i) => (
                     <MovieSkeleton key={i} />
