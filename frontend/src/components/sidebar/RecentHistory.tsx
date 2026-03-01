@@ -1,12 +1,16 @@
 import { useState } from 'react'
 import { History, X, Search, ChevronRight } from 'lucide-react'
 import styles from './RecentHistory.module.css'
-import { useRecentHistory } from '../../hooks/useRecentHistory'
 import { useMovies } from '../../hooks/useMovies'
 
-export default function RecentHistory() {
+interface Props {
+    searches: string[]
+    removeSearch: (query: string) => void
+    clearSearches: () => void
+}
+
+export default function RecentHistory({ searches, removeSearch, clearSearches }: Props) {
     const [isOpen, setIsOpen] = useState(false)
-    const { searches, removeSearch, clearSearches } = useRecentHistory()
     const { handleSearch } = useMovies()
 
     const handleSearchClick = (query: string) => {

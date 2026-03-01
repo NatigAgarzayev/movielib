@@ -3,9 +3,19 @@ import { Clapperboard } from 'lucide-react'
 import SearchBar from '../ui/search/SearchBar'
 import { useMovies } from '../../hooks/useMovies'
 
-export default function Header() {
+interface Props {
+    addSearch: (query: string) => void
+}
+
+export default function Header({ addSearch }: Props) {
 
     const { searchQuery, handleSearch } = useMovies()
+
+    const handleSubmit = (query: string) => {
+        handleSearch(query)
+        if (query.trim()) addSearch(query)
+    }
+
 
     return (
         <header className={styles.header}>
@@ -18,7 +28,7 @@ export default function Header() {
                         <h1 className={styles.title}>MovieLib</h1>
                     </div>
                     <div className={styles.search}>
-                        <SearchBar value={searchQuery} onChange={handleSearch} />
+                        <SearchBar value={searchQuery} onChange={handleSubmit} />
                     </div>
                 </div>
             </div>
