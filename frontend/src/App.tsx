@@ -8,7 +8,6 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
     const { searches, addSearch, removeSearch, clearSearches } = useRecentHistory()
-
     return (
         <>
             <Toaster

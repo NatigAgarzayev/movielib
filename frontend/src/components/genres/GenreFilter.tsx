@@ -11,6 +11,19 @@ const GenreFilter = () => {
     const scrollRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        const el = scrollRef.current
+        if (!el) return
+
+        const handleWheel = (e: WheelEvent) => {
+            e.preventDefault()
+            el.scrollLeft += e.deltaY
+        }
+
+        el.addEventListener('wheel', handleWheel, { passive: false })
+        return () => el.removeEventListener('wheel', handleWheel)
+    }, [])
+
+    useEffect(() => {
         if (error) toast.error(error)
     }, [error])
 
