@@ -1,5 +1,6 @@
 import axios from 'axios'
-import type { Genre, MovieListResponse } from '../types/movie.types'
+import type { MovieListResponse } from '../types/movie.types'
+import type { Genre } from '../types/genre.types'
 
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL ?? 'http://localhost:3001',
