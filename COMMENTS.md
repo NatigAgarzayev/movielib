@@ -20,6 +20,7 @@
 - I created custom Redux hooks, to type them once and use everywhere without further typing (useAppSelector, useAppDispatch)
 - I didn't add React Router Dom since we only have one page
 - I made full responsive application for all screen and devices in order to increase UX
+- Reduced the number of movie calls by uplifting logic to the parent component so we have 1 request instead of 4 same requests.
 
 
 ### Overall
