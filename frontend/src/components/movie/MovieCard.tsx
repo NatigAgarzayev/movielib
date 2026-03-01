@@ -16,7 +16,9 @@ export default function MovieCard({ movie }: Props) {
     )
 
     return (
-        <div className={styles.card}>
+        <div className={styles.card}
+            onClick={() => window.open(`https://www.themoviedb.org/movie/${movie.id}`, '_blank')}
+        >
             {movie.posterUrl
                 ? <img
                     src={movie.posterUrl}

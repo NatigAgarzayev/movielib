@@ -26,6 +26,7 @@
 
 ### Overall
 - All points (based + bonus) has been implemented in this project
+- Design of the app was created by FigmaAI
 
 ---
 
@@ -42,6 +43,8 @@ This led to a useful discussion about how NestJS enforces OOP at the structural 
 When I created an instance for axios, AI added :any type in a catch block. Since we use axios, it has its own error typing that provided from the lib. Basically I replaced :any with AxiosError. 
 
 Another issue was with a slice where it didn't use try/catch block, so I asked AI to add it.
+
+Overall, there were mostly mistakes with typing
 
 ---
 
