@@ -1,0 +1,178 @@
+.toggleButton {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    padding: 12px 8px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: padding 0.2s ease;
+}
+
+.toggleButton:hover {
+    padding-left: 14px;
+}
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    backdrop-filter: blur(2px);
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: var(--color-black-secondary);
+    border-right: 1px solid var(--color-dark-gray);
+    z-index: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 16px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.drawer.open {
+    transform: translateX(0);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: var(--color-gray);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+    color: var(--color-white);
+}
+
+.empty {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--color-gray);
+    font-size: 14px;
+}
+
+.emptyIcon {
+    color: var(--color-gray);
+    opacity: 0.5;
+}
+
+.list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    padding: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.item:hover {
+    background-color: var(--color-dark-gray);
+}
+
+.searchButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1;
+    text-align: left;
+    padding: 6px 4px;
+}
+
+.searchIcon {
+    color: var(--color-gray);
+    flex-shrink: 0;
+}
+
+.removeButton {
+    background: none;
+    border: none;
+    color: var(--color-gray);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.removeButton:hover {
+    color: var(--color-red);
+}
+
+.clearButton {
+    background: none;
+    border: 1px solid var(--color-dark-gray);
+    color: var(--color-gray);
+    font-size: 13px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.clearButton:hover {
+    border-color: var(--color-red);
+    color: var(--color-red);
+}
+
+.footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-gray);
+    font-size: 12px;
+}
