@@ -19,7 +19,7 @@
 - I added infinte scroll instead of pagination because I think it more convinient than clicking numbered buttons
 - I added debounced search to input so it will not call API request in every keystroke and made it 750ms (not too quick but also not too slow typing)
 - I created custom Redux hooks, to type them once and use everywhere without further typing (useAppSelector, useAppDispatch)
-- I didn't add React Router Dom since we only have one page
+- I didn't add React Router Dom since it wasn't required and we have 1 page
 - I made full responsive application for all screen and devices in order to increase UX
 - Reduced the number of movie calls by uplifting logic to the parent component so we have 1 request instead of 4 same requests.
 
