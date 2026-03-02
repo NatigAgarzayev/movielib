@@ -27,7 +27,7 @@ const GenreFilter = () => {
 
         el.addEventListener('wheel', handleWheel, { passive: false })
         return () => el.removeEventListener('wheel', handleWheel)
-    }, [])
+    }, [genres])
 
     useEffect(() => {
         if (error) toast.error(error)
@@ -57,7 +57,6 @@ const GenreFilter = () => {
             <div
                 className={styles.genreContent}
                 ref={scrollRef}
-                onWheel={handleWheel}
             >
                 <button
                     className={`${styles.pill} ${selectedGenre === null ? styles.active : ''}`}
