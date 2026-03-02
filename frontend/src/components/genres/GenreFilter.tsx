@@ -33,13 +33,6 @@ const GenreFilter = () => {
         if (error) toast.error(error)
     }, [error])
 
-    const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-        if (scrollRef.current) {
-            e.preventDefault()
-            scrollRef.current.scrollLeft += e.deltaY
-        }
-    }
-
     if (loading) return (
         <div className="wrapper">
             <div className={styles.genreContent}>
